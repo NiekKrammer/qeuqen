@@ -1,0 +1,74 @@
+<?php //1279fcc793dace620f58beb027829676
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            'sqlStatements' => [
+                1 => 'SELECT o0_.id AS id_0, o0_.item AS item_1, o0_.price AS price_2, o0_.order_id AS order_id_3 FROM order_items o0_ WHERE o0_.id IN (?)',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'entity' => 'App\\Entity\\OrderItems',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'item_1' => 'item',
+                    'price_2' => 'price',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'order_id_3' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'entity' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'order_id_3' => 'order_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'entity',
+                    'item_1' => 'entity',
+                    'price_2' => 'entity',
+                    'order_id_3' => 'entity',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\OrderItems',
+                    'item_1' => 'App\\Entity\\OrderItems',
+                    'price_2' => 'App\\Entity\\OrderItems',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    [
+        [
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'sqlExecutor' => $o[1],
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'resultSetMapping' => $o[2],
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'parameterMappings' => [
+                'dpid' => [
+                    0,
+                ],
+            ],
+        ],
+        1,
+    ]
+); }];

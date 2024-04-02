@@ -1,0 +1,72 @@
+<?php //163504812383431a2a3608486e7c9767
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            'sqlStatements' => [
+                1 => 'SELECT p0_.id AS id_0, p0_.name AS name_1, p0_.price AS price_2, p0_.available AS available_3, p0_.image_file AS image_file_4, p0_.category AS category_5 FROM products p0_ WHERE p0_.id IN (?)',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'entity' => 'App\\Entity\\Products',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'name_1' => 'name',
+                    'price_2' => 'price',
+                    'available_3' => 'available',
+                    'image_file_4' => 'image_file',
+                    'category_5' => 'category',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'entity' => null,
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'entity',
+                    'name_1' => 'entity',
+                    'price_2' => 'entity',
+                    'available_3' => 'entity',
+                    'image_file_4' => 'entity',
+                    'category_5' => 'entity',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Products',
+                    'name_1' => 'App\\Entity\\Products',
+                    'price_2' => 'App\\Entity\\Products',
+                    'available_3' => 'App\\Entity\\Products',
+                    'image_file_4' => 'App\\Entity\\Products',
+                    'category_5' => 'App\\Entity\\Products',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    [
+        [
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'sqlExecutor' => $o[1],
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'resultSetMapping' => $o[2],
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'parameterMappings' => [
+                'dpid' => [
+                    0,
+                ],
+            ],
+        ],
+        1,
+    ]
+); }];

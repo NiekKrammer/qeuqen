@@ -1,0 +1,77 @@
+<nav>
+    <a href="{{ path('app_default') }}" class="nav-logo">Qeuqen</a>
+    <ul class="nav-menu">
+        {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a href="{{ path('app_admin') }}" class="nav-link">admin</a>
+            </li>
+        {% endif %}
+        {% if app.user %}
+            {% if app.request.attributes.get('_route') != 'app_order_history' %}
+                <li><a href="{{ path('app_order_history') }}" class="nav-link">bestellingen</a></li>
+            {% else %}
+                <!-- Add your link for the "app_order_history" page -->
+                <li><a href="{{ path('app_default') }}" class="nav-link">startpagina</a></li>
+            {% endif %}
+            <li><a href="{{ path('app_logout') }}" class="nav-link">uitloggen</a></li>
+        {% else %}
+            <li><a href="{{ path('app_login') }}" class="nav-link">inloggen</a></li>
+        {% endif %}
+        <li class="cart"><a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                            aria-controls="offcanvasRight"><i class="fa-solid fa-cart-shopping cart-icon"><span class="counter"
+                                                                                                                id="cart-counter"></span></i></a></li>
+    </ul>
+
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar-middle"></span>
+        <span class="bar"></span>
+    </div>
+</nav>
+
+<!-- Shopping cart -->
+<div class="offcanvas offcanvas-end shopping_cart" tabindex="-1" id="offcanvasRight"
+     aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h4 class="offcanvas-title" id="offcanvasRightLabel">Winkelwagen</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body cart d-flex flex-column justify-content-between">
+
+        <!-- added products -->
+        <div id="cart-content">
+        </div>
+
+        <div>
+            <p id="total-price"></p>
+            {% if app.request.get('_route') == "app_order" %}
+                <a class="order_btn" href="{{ path('app_order') }}">Wijzig Bestelling</a>
+            {% else %}
+                <a class="order_btn" href="{{ path('app_order') }}">Verder naar bestellen</a>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Hamburger menu
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll(".nav-link");
+
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
+</script>

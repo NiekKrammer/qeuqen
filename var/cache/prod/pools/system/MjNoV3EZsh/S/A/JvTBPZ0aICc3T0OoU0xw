@@ -1,0 +1,95 @@
+<?php //e599c5a4037ee04d58a4f839c89ea521
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Query\\ParserResult'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ParserResult')),
+        clone ($p['Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\Exec\\SingleSelectExecutor')),
+        clone ($p['Doctrine\\ORM\\Query\\ResultSetMapping'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Query\\ResultSetMapping')),
+    ],
+    null,
+    [
+        'Doctrine\\ORM\\Query\\Exec\\AbstractSqlExecutor' => [
+            'sqlStatements' => [
+                1 => 'SELECT o0_.id AS id_0, o0_.delivery_option AS delivery_option_1, o0_.name AS name_2, o0_.address AS address_3, o0_.email AS email_4, o0_.phone_nr AS phone_nr_5, o0_.date AS date_6, o0_.time AS time_7, o0_.comment AS comment_8, o0_.ordered_at AS ordered_at_9, o0_.username_id AS username_id_10 FROM `order` o0_ WHERE o0_.id IN (?)',
+            ],
+        ],
+        'stdClass' => [
+            'aliasMap' => [
+                2 => [
+                    'entity' => 'App\\Entity\\Order',
+                ],
+            ],
+            'fieldMappings' => [
+                2 => [
+                    'id_0' => 'id',
+                    'delivery_option_1' => 'deliveryOption',
+                    'name_2' => 'name',
+                    'address_3' => 'address',
+                    'email_4' => 'email',
+                    'phone_nr_5' => 'phoneNr',
+                    'date_6' => 'date',
+                    'time_7' => 'time',
+                    'comment_8' => 'comment',
+                    'ordered_at_9' => 'ordered_at',
+                ],
+            ],
+            'typeMappings' => [
+                2 => [
+                    'username_id_10' => 'integer',
+                ],
+            ],
+            'entityMappings' => [
+                2 => [
+                    'entity' => null,
+                ],
+            ],
+            'metaMappings' => [
+                2 => [
+                    'username_id_10' => 'username_id',
+                ],
+            ],
+            'columnOwnerMap' => [
+                2 => [
+                    'id_0' => 'entity',
+                    'delivery_option_1' => 'entity',
+                    'name_2' => 'entity',
+                    'address_3' => 'entity',
+                    'email_4' => 'entity',
+                    'phone_nr_5' => 'entity',
+                    'date_6' => 'entity',
+                    'time_7' => 'entity',
+                    'comment_8' => 'entity',
+                    'ordered_at_9' => 'entity',
+                    'username_id_10' => 'entity',
+                ],
+            ],
+            'declaringClasses' => [
+                2 => [
+                    'id_0' => 'App\\Entity\\Order',
+                    'delivery_option_1' => 'App\\Entity\\Order',
+                    'name_2' => 'App\\Entity\\Order',
+                    'address_3' => 'App\\Entity\\Order',
+                    'email_4' => 'App\\Entity\\Order',
+                    'phone_nr_5' => 'App\\Entity\\Order',
+                    'date_6' => 'App\\Entity\\Order',
+                    'time_7' => 'App\\Entity\\Order',
+                    'comment_8' => 'App\\Entity\\Order',
+                    'ordered_at_9' => 'App\\Entity\\Order',
+                ],
+            ],
+        ],
+    ],
+    $o[0],
+    [
+        [
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'sqlExecutor' => $o[1],
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'resultSetMapping' => $o[2],
+            "\0".'Doctrine\\ORM\\Query\\ParserResult'."\0".'parameterMappings' => [
+                'dpid' => [
+                    0,
+                ],
+            ],
+        ],
+        1,
+    ]
+); }];

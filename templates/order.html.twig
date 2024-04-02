@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container my-4 order_page">
+        <h1 class="text-center mb-4">Bestelling</h1>
+        <div id="order-list"></div>
+
+        {% if app.request.hasPreviousSession() and app.request.session.flashBag.has('order_empty') %}
+            <div class="alert alert-info">
+                {{ app.request.session.flashBag.get('order_empty')|first }}
+            </div>
+        {% endif %}
+
+        <p id="total-price-order" class="text-center my-5 totalPrice"></p>
+
+        {% for message in app.flashes('order_empty') %}
+            <div class="alert alert-danger" style="max-width: 400px; margin: 0 auto; text-align: center;">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <form method="post" action="{{ path('app_order') }}" class="my-5 p-5 m-auto order_form">
+            {{ form_start(form) }}
+
+            <!-- Hidden field to submit JSON cart data -->
+            <input type="hidden" id="cartData" name="cartData" value="">
+
+            <h4 class="mb-5 text-center">Vul hier uw gegevens in:</h4>
+
+            {{ form_row(form.deliveryOption) }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.address) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.phoneNr) }}
+            {{ form_row(form.date) }}
+            {{ form_row(form.time) }}
+
+            <div class="mb-3" id="commentSection" style="display: none">
+                {{ form_row(form.comment) }}
+            </div>
+
+            <button type="submit" id="place-order-button" class="placeOrderBtn">Plaats bestelling</button>
+            {{ form_end(form) }}
+        </form>
+
+    </div>
+{% endblock %}

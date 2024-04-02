@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!-- Herosection -->
+    {% include 'includes/herosection.html.twig' %}
+
+    <!-- The Menu -->
+    <div data-aos="fade-right" data-aos-duration="1300" id="the_menu" class="d-flex justify-content-center"><h2 class="mt-5 mb-4"><i class="fa-solid fa-utensils"></i> Menu</h2>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="d-flex justify-content-center mt-1 mb-5 gap-2 filter_buttons" data-aos="fade-left" data-aos-duration="1300">
+        <button class="btn tab-button filter_button active" onclick="openTab('food')">Eten</button>
+        <button class="btn tab-button filter_button" onclick="openTab('drinks')">Drankjes</button>
+        <button class="btn tab-button filter_button" onclick="openTab('desserts')">Desserts</button>
+    </div>
+
+    <!-- Food Section -->
+    <div id="food" class="container mb-5 tab-content">
+        <div class="row d-flex justify-content-center">
+
+            {% for product in products %}
+                {% if product.category == 'food' %}
+                    <div class="col-lg-4 col-md-6 mb-5" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="product rounded-full">
+                            <img src="{{ asset('images/products/'~product.image_file) }}" class="img-fluid"
+                                 alt="{{ product.name }}">
+                            <h3>{{ product.name }}</h3>
+                            <p>€ {{ product.price }}</p>
+                            <button class="btn btn-outline-success add_btn" data-product-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.price }}"><i class="fa-solid fa-cart-shopping"></i> In winkelwagen</button>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <!-- Drinks Section -->
+    <div id="drinks" class="container mb-5 tab-content">
+        <div class="row d-flex justify-content-center">
+
+            {% for product in products %}
+                {% if product.category == 'drinks' %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-5">
+                        <div class="product rounded-full d-flex flex-column h-100">
+                            <div class="d-flex flex-column align-items-center justify-content-center flex-grow-1">
+                                <img src="{{ asset('images/products/'~product.image_file) }}"
+                                     class="img-fluid drinks_image"
+                                     alt="{{ product.name }}">
+                            </div>
+                            <div class="mt-auto text-center">
+                                <h3>{{ product.name }}</h3>
+                                <p>€ {{ product.price }}</p>
+                                <button class="btn btn-outline-success add_btn" data-product-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.price }}"><i class="fa-solid fa-cart-shopping"></i> In winkelwagen</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+    <!-- Desserts Section -->
+    <div id="desserts" class="container mb-5 tab-content">
+        <div class="row d-flex justify-content-center">
+            {% for product in products %}
+                {% if product.category == 'desserts' %}
+                    <div class="col-lg-3 col-md-6 mb-5">
+                        <div class="product rounded-full">
+                            <img src="{{ asset('images/products/'~product.image_file) }}" class="img-fluid"
+                                 alt="{{ product.name }}">
+                            <h3>{{ product.name }}</h3>
+                            <p>€ {{ product.price }}</p>
+                            <button class="btn btn-outline-success add_btn" data-product-id="{{ product.id }}" data-name="{{ product.name }}" data-price="{{ product.price }}"><i class="fa-solid fa-cart-shopping"></i> In winkelwagen</button>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Reviews -->
+    {% include 'includes/reviews.html.twig' %}
+    {% include 'includes/contact.html.twig' %}
+
+{% endblock %}
